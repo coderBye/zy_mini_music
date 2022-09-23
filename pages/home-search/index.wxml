@@ -1,0 +1,31 @@
+<!-- 搜索框模块 -->
+<van-search shape="round" 
+                     bind:change="handleInputChange" 
+                     value="{{searchContent}}"
+                     show-action="{{searchContent}}">
+</van-search>
+<!-- 热门搜索模块 -->
+<view class="hotSearch"  wx:if="{{!searchContent}}">
+  <area-header title="热门搜索" showRight="{{false}}" class="title"></area-header>
+  <block wx:for="{{hotSearch}}" wx:key="first">
+    <view class="tag" bindtap="handleMusicMatchClick" data-item="{{item}}">{{item.first}}</view>
+  </block>
+</view>
+<!-- 搜索结果模块 -->
+<view class="searchResult" wx:elif="{{searchContent && matchSearch.length  && !exactMatchMusics.length}}">
+  <view class="keyword">搜索“{{searchContent}}”</view>
+  <view class="list">
+    <view wx:for="{{matchSearch}}" wx:key="keyword" class="list-item" bindtap="handleMusicMatchClick" data-item="{{item}}">
+      <image class="image" src="/assets/images/icon/search_icon.png" mode="widthFix"></image>
+      <!-- <text>{{item.keyword}}</text> -->
+      <rich-text nodes="{{matchNodes[index]}}" class="info"></rich-text>
+    </view>
+  </view>
+</view>
+<!-- 最佳匹配 -->
+<view class="match" wx:else>
+  <view class="title">最佳匹配</view>
+  <block wx:for="{{exactMatchMusics}}" wx:key="id">
+    <music-item-v3 item="{{item}}" index="{{index+1}}" bindtap="handleMusicItemClick" data-item="{{item}}"></music-item-v3>
+  </block>
+</view>

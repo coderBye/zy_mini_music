@@ -1,0 +1,17 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
+<view class="video">
+    <view class="video-item" wx:for="{{topMvs}}" wx:key="id"  bindtap="handleVideoItemClick" data-item="{{item}}">
+      <view class="image">
+        <image src="{{item.cover}}" mode="widthFix"></image>
+        <view class="msg">
+          <text class="playCount">{{format.formatCount(item.playCount)}}</text>
+          <text class="duration">{{format.formatTime(item.mv.videos[0].duration)}}</text>
+        </view>
+      </view>
+      <view class="desc double_ellipsis">
+        <text>{{item.name}}</text>
+        <text>{{item.artistName}}</text>
+      </view>
+    </view>
+</view>

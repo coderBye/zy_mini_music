@@ -1,0 +1,50 @@
+/* components/ranking-area-item/index.wxss */
+.ranking{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.ranking .left{
+  flex: 1;
+  padding: 0 20rpx;
+  background-color: #eee;
+}
+.ranking .left .title{
+  padding: 10rpx 0;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.ranking .left .list{
+  font-size: 30rpx;
+}
+
+.ranking .left .list .list-item{
+  padding: 5rpx 0;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.ranking .left .list .author{
+  color: #999;
+}
+
+.ranking .right{
+  position: relative;
+  width: 220rpx;
+}
+
+.ranking .right .playCount{
+  position: absolute;
+  right: 0;
+  bottom: 10rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: rgba(0,0,0,.5);
+}

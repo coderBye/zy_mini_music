@@ -1,0 +1,98 @@
+/* pages/detail-song/index.wxss */
+.header{
+  position: relative;
+  left: -20rpx;
+  width: 100vw;
+  height: 500rpx;
+}
+
+.bg .bg-image image{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.bg .bg-cover{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(0,0,0,.5);
+  backdrop-filter: blur(10px);
+}
+
+.body{
+  position: absolute;
+  left: 70rpx;
+  right: 20rpx;
+  top: 50rpx;
+  bottom: 50rpx;
+  color: #fff;
+}
+
+.body .top {
+  display: flex;
+  height: 300rpx;
+}
+
+.body .top .left{
+  margin-right: 30rpx;
+  width: 300rpx;
+  height: 300rpx;
+}
+.body .top .left image{
+  width: 100%;
+  height: 100%;
+}
+
+.body .top .right{
+  flex: 1;
+}
+
+.body .top .right .right-desc{
+  font-size: 38rpx;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.body .top .right .right-author {
+  padding: 15rpx 0;
+}
+
+.body .top .right .right-author .image{
+  position: relative;
+  top: 10rpx;
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.body .top .right .author-desc{
+  font-size: 28rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.body .operate{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.body .operate .icon{
+  position: relative;
+  top: 7rpx;
+  margin-right: 8rpx;
+  width: 35rpx;
+  height: 35rpx;
+}

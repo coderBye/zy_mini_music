@@ -1,0 +1,30 @@
+.video{
+  width: 100%;
+}
+.content{
+  padding: 0 15rpx;
+}
+.video-info{
+
+}
+.video-info .title{
+  font-size: 44rpx;
+  font-weight: 700;
+}
+.video-info .author{
+  padding: 5rpx 0;
+  font-size: 34rpx;
+  color: rgb(156, 154, 154);
+}
+.video-info .count-time{
+  font-size: 34rpx;
+  color: rgb(156, 154, 154);
+}
+
+.recommend{
+  margin-top: 50rpx;
+}
+.recommend .title{
+  font-size: 40rpx;
+  font-weight: 700;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "area-header":"/components/area-header/index",
+    "musci-item-v3":"/components/music-item-v3/index"
+  }
+}

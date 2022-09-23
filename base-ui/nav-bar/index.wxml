@@ -1,0 +1,17 @@
+<!--base-ui/nav-bar/index.wxml-->
+<view class="nav">
+  <view class="statusBar" style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar" style="height: {{navBarHeight}}px; line-height: {{navBarHeight}}px;">
+    <view class="left">
+      <image class="image" src="/assets/images/icon/arrow-left.png" mode="widthFix"></image>
+    </view>
+    <view class="content">
+      <view class="slot">
+        <slot></slot>
+      </view>
+      <view class="default">我是默认内容</view>
+    </view>
+    <view class="right"></view>
+  </view>
+
+</view>

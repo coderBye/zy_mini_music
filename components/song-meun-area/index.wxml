@@ -1,0 +1,8 @@
+<view class="hotMenu" >
+  <area-header title="{{title}}"></area-header>
+  <scroll-view  scroll-x class="scroll">
+    <view wx:for="{{item}}" wx:key="*this" class="album">
+      <song-menu-item item="{{item}}"></song-menu-item>
+    </view>
+  </scroll-view>
+</view>

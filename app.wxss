@@ -1,0 +1,24 @@
+page{
+  background-color: #fafafa;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+/* 超出两行显示省略号 */
+.double_ellipsis{
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.van-search {
+  background-color: #fafafa !important;
+  padding: 10px 0;
+}
+
+.van-search__content {
+  background-color: #fff !important;
+}

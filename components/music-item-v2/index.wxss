@@ -1,0 +1,40 @@
+/* components/music-item-v2/index.wxss */
+.music-item{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.music-item .left{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+.music-item .left image{
+  width: 100%;
+}
+
+.music-item .center{
+  flex: 1;
+  padding-left: 15rpx;
+}
+
+.music-item .center .name{
+  font-size: 32rpx;
+  color: #555;
+}
+
+.music-item .center  .source {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.music-item .right{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.music-item .right .icon{
+  width: 100%;
+  height: 100%;
+}

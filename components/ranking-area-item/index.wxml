@@ -1,0 +1,16 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
+<view class="ranking"  bindtap="handleRankingClick">
+  <view class="left">
+    <view class="title">{{item.name}}</view>
+    <view class="list" wx:for="{{item.tracks}}" wx:key="id">
+      <view class="list-item">{{index+1}}.{{item.name}} 
+        <text class="author">- {{item.ar[0].name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="right">
+    <image src="{{item.coverImgUrl}}" mode="widthFix"></image>
+    <text class="playCount">{{format.formatCount(item.playCount)}}</text>
+  </view>
+</view>

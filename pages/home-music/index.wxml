@@ -1,0 +1,32 @@
+<!-- 搜索栏 -->
+<van-search disabled="true" placeholder="请输你喜欢的歌曲" shape="round" bind:tap="handleSearchClick"></van-search>
+<!-- 轮播图 处理高度适配的问题 -->
+<swiper class="swiper" indicator-dots autoplay style="height: {{swiperHeight}}px;">
+  <swiper-item class="swiper-item" wx:for="{{banners}}" wx:key="targetId">
+    <image id="image" src="{{item.imageUrl}}" mode="widthFix" bindload="handleImageLoad"></image>
+  </swiper-item>
+</swiper>
+<!-- 推荐歌曲-->
+<view class="recommend">
+  <area-header title="歌曲推荐" bind:click="handleMoreClick"></area-header>
+  <view class="content">
+    <block wx:for="{{recommendSongs}}" wx:key="id">
+      <music-item-v2 songItem="{{item}}"></music-item-v2>
+    </block>
+  </view>
+</view>
+<!-- 热门歌单 -->
+<view class="hotMenu">
+  <song-menu-area item="{{hotSongsMenu}}" title="热门歌单"></song-menu-area>
+</view>
+<!-- 推荐歌单 -->
+<view class="recommendMenu">
+  <song-menu-area item="{{recommendSongsMenu}}" title="推荐歌单"></song-menu-area>
+</view>
+<!-- 巅峰榜单-->
+<view class="topRanking">
+  <area-header title="巅峰榜" showRight="{{false}}"></area-header>
+  <ranking-area-item item="{{newRanking}}" bind:click="handleRankingClick" data-item="newRanking"></ranking-area-item>
+  <ranking-area-item item="{{originRanking}}" bind:click="handleRankingClick" data-item="originRanking"></ranking-area-item>
+  <ranking-area-item item="{{upRanking}}" bind:click="handleRankingClick" data-item="upRanking"></ranking-area-item>
+</view>

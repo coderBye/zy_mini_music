@@ -1,0 +1,24 @@
+page{
+  margin-bottom: 60rpx;
+}
+
+
+.swiper {
+  display: flex;
+  border-radius: 15rpx;
+  overflow: hidden;
+  transform: translate(0);
+}
+
+image {
+  width: 100%;
+}
+
+.recommend .content{
+  margin-top: 20rpx;
+}
+
+.recommendMenu{
+  margin-top: 15rpx;
+}
+

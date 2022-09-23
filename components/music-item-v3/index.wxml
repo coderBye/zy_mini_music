@@ -1,0 +1,11 @@
+<!--components/music-item-v3/index.wxml-->
+<view class="song-v3">
+  <view class="index">{{index}}</view>
+  <view class="main">
+    <view class="title">{{item.name}}</view>
+    <view class="info">
+      <image class="image" src="/assets/images/icon/sq_icon.png" mode="widthFix"></image>
+      <text class="desc">{{item.al.name}}</text>
+    </view>
+  </view>
+</view>

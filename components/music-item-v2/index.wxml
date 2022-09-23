@@ -1,0 +1,13 @@
+<!--components/music-item-v2/index.wxml-->
+<view class="music-item">
+  <view class="left">
+    <image src="{{songItem.al.picUrl}}" wx:if="{{songItem.al}}" mode="widthFix"></image>
+  </view>
+  <view class="center">
+    <view class="name">{{songItem.name}}</view>
+    <view class="source">{{songItem.ar[0].name}} · {{songItem.al.name}}</view>
+  </view>
+  <view class="right">
+    <image class="icon" src="/assets/images/icon/arrow-right.png"></image>
+  </view>
+</view>

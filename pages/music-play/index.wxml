@@ -1,0 +1,48 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
+<!-- 背景 -->
+<image class="bg-image" mode="aspectFill" src="{{currentSong.al.picUrl}}"></image>
+<view class="bg-cover"></view>
+<!-- 返回/歌曲/歌词区域组件 -->
+<nav-bar>
+  <view>
+    <text>歌曲</text>
+    <text class="divider">|</text>
+    <text>歌词</text>
+  </view>
+</nav-bar>
+<!-- 播放主区域 -->
+<swiper class="content" style="height: {{ contentHeight }}px;">
+  <swiper-item class="content-song">
+    <view class="image">
+      <image mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
+    </view>
+    <view class="info">
+      <view class="title">{{currentSong.al.name}}</view>
+      <view class="author">{{currentSong.ar[0].name}}</view>
+      <view class="album">专辑：{{currentSong.alia[0]}}</view>
+    </view>
+    <view class="lyric">{{currentLyric}}</view>
+    <view class="progress">
+      <slider block-size="12" 
+                  selected-color="#26ce8a"
+                  value="{{sliderValue}}"
+                  bindchange="handleSliderChange"
+                  bindchanging="handleSliderChanging">
+      </slider>
+      <view class="time">
+        <view class="currentTime">{{format.formatTime(currentTime)}}</view>
+        <view class="totalTime">{{format.formatTime(totalTime)}}</view>
+      </view>
+    </view>
+    <view class="operation">
+      <image mode="widthFix"  src="/assets/images/player/play_order.png"></image>
+      <image mode="widthFix" src="/assets/images/player/play_prev.png"></image>
+      <image mode="widthFix" src="/assets/images/player/play_pause.png"></image>
+      <image mode="widthFix" src="/assets/images/player/play_next.png"></image>
+      <image mode="widthFix" src="/assets/images/player/play_music.png"></image>
+    </view>
+  </swiper-item>
+
+  <swiper-item>2</swiper-item>
+</swiper>

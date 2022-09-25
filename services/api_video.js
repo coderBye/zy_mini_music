@@ -1,6 +1,6 @@
 import request from "./request"
 
-// 请求视频页面的数据
+// 请求视频页面的数据【数据有限制的】
 export function fetchTopMv(offset,limit=10){
      return request.get("/top/mv",{
        limit:limit,

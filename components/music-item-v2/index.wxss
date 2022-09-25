@@ -9,7 +9,7 @@
   border-radius: 15rpx;
   overflow: hidden;
 }
-.music-item .left image{
+.music-item .left .image{
   width: 100%;
 }
 

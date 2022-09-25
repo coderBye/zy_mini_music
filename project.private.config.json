@@ -29,9 +29,16 @@
           "query": "ids=1901371647",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "detail-music",
+          "pathName": "pages/detail-video/index",
+          "query": "id=14565257",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
   },
-  "libVersion": "2.26.0"
+  "libVersion": "2.16.0"
 }

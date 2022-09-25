@@ -1,4 +1,5 @@
 import { fetchHotSearch, fetchSeachSuggest,fetchSeachMusic } from "../../services/api-search"
+import { playStroe } from "../../store/index"
 
 Page({
   data: {
@@ -59,21 +60,6 @@ Page({
         matchNodes.push(nodes)
       })
       this.setData({ matchNodes })
-
-      // const nodes = []
-      // matchSearch.map(item => {
-      //   if (item.keyword.toUpperCase().startsWith(this.data.searchContent.toUpperCase())) {
-      //     const node = {
-      //       name: "span",
-      //       attrs: { color: "#26ce8a " },
-      //       children: [{ type:"text",text:item.keyword }]
-      //     }
-      //   } else {
-      //     console.log("没有匹配到");
-      //   }
-      //   this.setData
-      // })
-
     })
   },
   handleMusicMatchClick(event){
@@ -88,5 +74,6 @@ Page({
     wx.navigateTo({
       url: '/pages/music-play/index?ids=' + ids,
     })
+    playStroe.dispatch("getCurrentSongAction",{ ids })
   }
 })

@@ -22,4 +22,11 @@ Page({
     }
    
   },
+  // 事件处理
+  handleMusicItemClick(event){
+    const ids = event.currentTarget.dataset.item.id
+    wx.navigateTo({
+      url: '/pages/music-play/index?ids=' + ids,
+    })
+  }
 })

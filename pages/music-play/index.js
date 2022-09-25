@@ -1,57 +1,63 @@
-import { fetchSongDetai, fetchSongLyric } from "../../services/api_music"
 import { innerAudioContext } from "../../store/play-store"
-import { parseLyric } from "../../utils/parse-lyric"
-
+import { playStroe } from "../../store/index"
 
 Page({
   data: {
-    id:"",
-    currentIndex:0,
+    id: "",
+    currentIndex: 0,
     currentSong: {},
     statusBarHeight: getApp().globalData.statusBarHeight,
     contentHeight: 0,
     currentTime: 0,
     currentLyric: "",
+    currentLyricIndex: 0,
+    scrollTop: 0,
     totalTime: 0,
     sliderValue: 0,
-    isSlider: false
+    isSlider: false,
+    lyrics: [],
+    isShowLyric: true,
+    playMode: 0,  //0：顺序播放  1：单曲循化  2：随机播放
+    playModeList: ["order", "repeat", "random"]
   },
   onLoad(options) {
-    const ids = options.ids
-    // 1. 获取歌曲信息
-    fetchSongDetai(ids).then(res => {
-      this.setData({ currentSong: res.songs[0], totalTime: res.songs[0].dt })
-    })
+    // 1. 获取歌曲/歌词信息
+    this.getData()
+    // 2.获取设备顶部高度
     const globalData = getApp().globalData
     const contentHeight = globalData.screenHeight - (globalData.statusBarHeight + globalData.navBarHeight)
-    this.setData({ contentHeight })
-    // 2.歌曲播放
-    innerAudioContext.autoplay = true
-    innerAudioContext.src = `https://music.163.com/song/media/outer/url?id=${ids}.mp3`
-    innerAudioContext.stop()
-    innerAudioContext.onCanplay(() => {
-      innerAudioContext.play()
-    })
-    innerAudioContext.onTimeUpdate(() => {
-      if (this.data.isSlider) return
-      const currentTime = innerAudioContext.currentTime * 1000
-      const sliderValue = currentTime / this.data.totalTime * 100
-      this.setData({ currentTime, sliderValue })
-      //3.获取歌词数据
-      fetchSongLyric(ids).then(res => {
-        const lyrics = parseLyric(res.lrc.lyric)
-        for (let i = 0; i < lyrics.length; i++) {
-          if (this.data.currentTime < lyrics[i].time) {
-            const currentLyric = lyrics[i - 1].text
-            if (this.data.currentLyric !== currentLyric) {
-              this.setData({ currentLyric })
-            }
-            break
-          }
-        }
-      })
+    const isShowLyric = globalData.deviceRadio >= 2 ? true : false
+    this.setData({ contentHeight, isShowLyric })
+  },
+  // 网络请求
+  getData() {
+    playStroe.onStates(["currentSong", "currentTime", "totalTime", "sliderValue"], ({
+      currentSong,
+      currentTime,
+      totalTime,
+      sliderValue
+    }) => {
+      if (currentSong) this.setData({ currentSong })
+      if (currentTime && !this.data.isSlider) this.setData({ currentTime })
+      if (totalTime) this.setData({ totalTime })
+      if (sliderValue && !this.data.isSlider) this.setData({ sliderValue })
     })
 
+    playStroe.onStates(["lyrics", "currentLyric", "currentLyricIndex"], ({
+      lyrics,
+      currentLyric,
+      currentLyricIndex
+    }) => {
+      if (lyrics) this.setData({ lyrics })
+      if (currentLyric) this.setData({ currentLyric })
+      if (currentLyricIndex) this.setData({ currentLyricIndex })
+    })
+
+    playStroe.onStates(["scrollTop"], ({
+      scrollTop
+    }) => {
+      if (scrollTop) this.setData({ scrollTop })
+    })
   },
   // 事件处理
   handleSliderChange(event) {
@@ -61,10 +67,23 @@ Page({
     innerAudioContext.stop()
     innerAudioContext.seek(currentTime / 1000)
     this.setData({ sliderValue, currentTime, isSlider: false })
+
   },
   handleSliderChanging(event) {
     const sliderValue = event.detail.value
     const currentTime = this.data.totalTime * sliderValue / 100
     this.setData({ currentTime, isSlider: true })
+  },
+  handleSwiperChange(event) {
+    const currentIndex = event.detail.current
+    this.setData({ currentIndex })
+  },
+  handleBackClick() {
+    wx.navigateBack()
+  },
+  handlePlayMode() {
+    let index = this.data.playMode + 1
+    if (index >= this.data.playModeList.length) index = 0
+    this.setData({ playMode: index })
   }
 })

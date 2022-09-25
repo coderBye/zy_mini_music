@@ -26,6 +26,6 @@
 <view class="match" wx:else>
   <view class="title">最佳匹配</view>
   <block wx:for="{{exactMatchMusics}}" wx:key="id">
-    <music-item-v3 item="{{item}}" index="{{index+1}}" bindtap="handleMusicItemClick" data-item="{{item}}"></music-item-v3>
+    <music-item-v3 item="{{item}}" index="{{index+1}}" bind:click="handleMusicItemClick" data-item="{{item}}"></music-item-v3>
   </block>
 </view>

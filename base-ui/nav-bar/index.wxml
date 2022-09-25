@@ -2,7 +2,7 @@
 <view class="nav">
   <view class="statusBar" style="height: {{statusBarHeight}}px;"></view>
   <view class="nav-bar" style="height: {{navBarHeight}}px; line-height: {{navBarHeight}}px;">
-    <view class="left">
+    <view class="left" bindtap="handleLeftClick">
       <image class="image" src="/assets/images/icon/arrow-left.png" mode="widthFix"></image>
     </view>
     <view class="content">

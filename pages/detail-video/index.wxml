@@ -1,11 +1,11 @@
 <wxs src=".../../../../utils/format.wxs" module="format"></wxs>
 
-<video class="video" src="{{videoUrl}}" controls 	referrer-policy="origin"    autoplay="false"></video>
+<video class="video" src="{{videoUrl}}" controls referrer-policy="origin" autoplay loop></video>
 
-<view class="content">
-    <view class="video-info">
+<scroll-view class="content" scroll-y>
+  <view class="video-info">
     <view class="title">
-      <text>{{videoInfos.name}}   </text>
+      <text>{{videoInfos.name}}</text>
       <text>{{videoInfos.briefDesc ? "--" + videoInfos.briefDesc : "" }}</text>
     </view>
     <view class="author">{{videoInfos.artistName}}</view>
@@ -13,15 +13,16 @@
   </view>
   <view class="recommend">
     <view class="title">推荐视频</view>
-    <block wx:for="recommendInfos" wx:key="vid">
-      <view> 
-        <view>{{item.vid}}</view>
-        <image class="left"  src="{{item.coverUrl}}"></image>
-        <view class="right">
-          <view class="main-desc">{{item.title}}</view>
-          <view class="author">{{item.creator[0].userName}}</view>
+    <view class="list">
+      <block wx:for="{{recommendInfos}}" wx:key="title" wx:if="{{recommendInfos.length > 0}}">
+        <view class="list-item">
+          <image class="left" src="{{item.coverUrl}}" mode="widthFix"></image>
+          <view class="right">
+            <view class="main-desc">{{item.title}}</view>
+            <view class="author">{{item.creator[0].userName}}</view>
+          </view>
         </view>
-      </view>
-    </block>
+      </block>
+    </view>
   </view>
-</view>
+</scroll-view>

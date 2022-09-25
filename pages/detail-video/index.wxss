@@ -1,12 +1,25 @@
+page{
+  padding: 0 20rpx;
+}
 .video{
-  width: 100%;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
-.content{
-  padding: 0 15rpx;
-}
-.video-info{
 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
+
+.content{
+  margin-top: 225px;
+}
+
 .video-info .title{
   font-size: 44rpx;
   font-weight: 700;
@@ -21,10 +34,39 @@
   color: rgb(156, 154, 154);
 }
 
+/* 推荐视频 */
 .recommend{
   margin-top: 50rpx;
 }
 .recommend .title{
   font-size: 40rpx;
   font-weight: 700;
+}
+
+.recommend .list .list-item{
+  display: flex;
+  margin-top: 30rpx;
+}
+.recommend .list .list-item:last-child{
+  padding-bottom: 35rpx;
+}
+
+.recommend .list .list-item .left{
+  margin-right: 20rpx;
+  width: 240rpx;
+  border-radius: 20rpx;
+}
+
+.recommend .list .list-item .right{
+  flex: 1;
+}
+
+.recommend .list .list-item .right .main-desc{
+    font-size: 32rpx;
+}
+
+.recommend .list .list-item .right .author{
+  margin-top: 4rpx;
+  color: #999;
+  font-size: 30rpx;
 }

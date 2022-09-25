@@ -8,6 +8,8 @@ Component({
   },
 
   methods: {
-
+    handleLeftClick(){
+      this.triggerEvent("click")
+    }
   }
 })

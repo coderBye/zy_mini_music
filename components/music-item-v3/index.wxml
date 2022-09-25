@@ -1,5 +1,5 @@
 <!--components/music-item-v3/index.wxml-->
-<view class="song-v3">
+<view class="song-v3" bindtap="handleMusicItemClick">
   <view class="index">{{index}}</view>
   <view class="main">
     <view class="title">{{item.name}}</view>

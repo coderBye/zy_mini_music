@@ -16,7 +16,7 @@ page{
 
 .van-search {
   background-color: #fafafa !important;
-  padding: 10px 0;
+  padding: 10px 0 !important;
 }
 
 .van-search__content {

@@ -45,6 +45,6 @@
 
 <view class="content">
   <block wx:for="{{infos}}" wx:key="id">
-    <musci-item-v3 item="{{item}}" index="{{index+1}}"></musci-item-v3>
+    <musci-item-v3 item="{{item}}" index="{{index+1}}" bind:click="handleMusicItemClick" data-item="{{item}}"></musci-item-v3>
   </block>
 </view>

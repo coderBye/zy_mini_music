@@ -1,5 +1,5 @@
 <!--components/music-item-v2/index.wxml-->
-<view class="music-item">
+<view class="music-item" bindtap="handleMusicItemClick">
   <view class="left">
     <image src="{{songItem.al.picUrl}}" wx:if="{{songItem.al}}" mode="widthFix"></image>
   </view>
@@ -8,6 +8,6 @@
     <view class="source">{{songItem.ar[0].name}} · {{songItem.al.name}}</view>
   </view>
   <view class="right">
-    <image class="icon" src="/assets/images/icon/arrow-right.png"></image>
+    <image class="image" class="icon" src="/assets/images/icon/arrow-right.png"></image>
   </view>
 </view>

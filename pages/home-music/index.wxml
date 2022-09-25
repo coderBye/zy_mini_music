@@ -2,7 +2,7 @@
 <van-search disabled="true" placeholder="请输你喜欢的歌曲" shape="round" bind:tap="handleSearchClick"></van-search>
 <!-- 轮播图 处理高度适配的问题 -->
 <swiper class="swiper" indicator-dots autoplay style="height: {{swiperHeight}}px;">
-  <swiper-item class="swiper-item" wx:for="{{banners}}" wx:key="targetId">
+  <swiper-item class="swiper-item" wx:for="{{banners}}" wx:key="imageUrl">
     <image id="image" src="{{item.imageUrl}}" mode="widthFix" bindload="handleImageLoad"></image>
   </swiper-item>
 </swiper>
@@ -11,7 +11,7 @@
   <area-header title="歌曲推荐" bind:click="handleMoreClick"></area-header>
   <view class="content">
     <block wx:for="{{recommendSongs}}" wx:key="id">
-      <music-item-v2 songItem="{{item}}"></music-item-v2>
+      <music-item-v2 songItem="{{item}}" bind:click="handleMusicItemClick" data-item="{{item}}"></music-item-v2>
     </block>
   </view>
 </view>

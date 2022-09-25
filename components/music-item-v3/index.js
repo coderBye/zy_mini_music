@@ -14,6 +14,8 @@ Component({
 
   },
   methods: {
-
+    handleMusicItemClick(){
+      this.triggerEvent("click")
+    }
   }
 })

@@ -1,5 +1,6 @@
 import { homeStroe } from "../../store/index"
-import { fetchBanner, fetchSongMenu, fetchTopRanking } from "../../services/api_home"
+import { fetchBanner, fetchSongMenu } from "../../services/api_home"
+import { playStroe } from "../../store/index"
 
 Page({
   data: {
@@ -76,7 +77,14 @@ Page({
   handleRankingClick(event) {
     const ranking = event.currentTarget.dataset.item
     wx.navigateTo({
-      url: '/pages/detail-song/index?type=' + 'ranking'  + '&ranking=' + ranking,
+      url: '/pages/detail-song/index?type=' + 'ranking' + '&ranking=' + ranking,
     })
+  },
+  handleMusicItemClick(event) {
+    const ids = event.currentTarget.dataset.item.id
+    wx.navigateTo({
+      url: '/pages/music-play/index?ids=' + ids,
+    })
+    playStroe.dispatch("getCurrentSongAction",{ ids })
   }
 })
